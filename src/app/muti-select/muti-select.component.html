@@ -13,7 +13,7 @@
   </div>
   <div *ngIf="showSelection" >
     <ul class="select-list" >
-      <li class="select-list-li" *ngFor="let env of selectionArr, let i = index"  [ngClass]="{'active':env.active}"
+      <li class="select-list-li" *ngFor="let env of values, let i = index"  [ngClass]="{'active':env.active}"
       (click)="isSelected(i)">
         {{env.name}}
       </li>

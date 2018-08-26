@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  selectionArr = [
+    {'active': false, 'name': 'DEV'},
+    {'active': false, 'name': 'ST'},
+    {'active': false, 'name': 'UAT'}
+  ];
+
+  showSelectArr(arr: object[]) {
+    arr.forEach(it => console.log(it));
+  }
 }

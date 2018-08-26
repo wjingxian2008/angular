@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-muti-select',
@@ -7,12 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MutiSelectComponent implements OnInit {
 
+  @Input() values;
+  @Output() childEvent = new EventEmitter<any>();
+
   showSelection = false;
-  selectionArr = [
-    {'active': false, 'name': 'DEV'},
-    {'active': false, 'name': 'ST'},
-    {'active': false, 'name': 'UAT'}
-  ];
 
   selectedArr: object[];
 
@@ -27,7 +25,8 @@ export class MutiSelectComponent implements OnInit {
   }
 
   isSelected(i: number) {
-    this.selectionArr[i].active = !this.selectionArr[i].active;
-    this.selectedArr = this.selectionArr.filter(it => it.active === true);
+    this.values[i].active = !this.values[i].active;
+    this.selectedArr = this.values.filter(it => it.active === true);
+    this.childEvent.emit(this.selectedArr);
   }
 }
