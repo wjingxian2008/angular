@@ -1,0 +1,73 @@
+ul,li{
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+.select-wrapper .active{
+    background: blueviolet;
+    color: #fff;
+}
+.select-wrapper{
+    position: relative;
+    width: 100%;
+}
+.select-active{
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 29px;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+.select-active>ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.select-active>ul>li{
+   background: lightblue;
+   border-radius: 5px;
+   color: #fff;
+   padding: 2px;
+   margin: 2px;
+}
+.select-show{
+   box-sizing: border-box;
+   cursor: pointer;
+   height:30px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   padding: 5px;
+   border: 1px #ccc solid;
+}
+.select-show-txt{
+    flex: 1;
+    box-sizing: border-box;
+}
+.arr{
+    width: 50px;
+}
+.select-list{
+    box-sizing: border-box;
+    position: absolute;
+    top:30px;
+    left: 0;
+    width: 100%;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    cursor: pointer;
+}
+.select-list-li{
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px #ccc solid;
+}
+.select-list-li:hover{
+    background: blueviolet;
+    color: #fff;
+}

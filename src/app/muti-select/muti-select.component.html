@@ -1,0 +1,22 @@
+<div class="select-wrapper" (mouseleave)="showSelection = false">
+  <div class="select-active">
+    <ul>
+      <li *ngFor="let item of selectedArr">
+        {{item.name}}
+        <span>x</span>
+      </li>
+    </ul>
+  </div>
+  <div class="select-show" (click)="clickSelect()">
+    <div class="select-show-txt">请选择</div>
+    <div class="arr">arr</div>
+  </div>
+  <div *ngIf="showSelection" >
+    <ul class="select-list" >
+      <li class="select-list-li" *ngFor="let env of selectionArr, let i = index"  [ngClass]="{'active':env.active}"
+      (click)="isSelected(i)">
+        {{env.name}}
+      </li>
+    </ul>
+  </div>
+</div>
