@@ -4,7 +4,7 @@ ul,li{
     margin: 0;
 }
 .select-wrapper .active{
-    background: blueviolet;
+    background: #ccc;
     color: #fff;
 }
 .select-wrapper{
@@ -14,11 +14,11 @@ ul,li{
 .select-active{
     box-sizing: border-box;
     position: absolute;
-    bottom: 29px;
+    top: 29px;
     left: 0;
     width: 100%;
     border: 1px solid #ccc;
-    border-bottom: none;
+    /* border-bottom: none; */
 }
 .select-active>ul{
     display: flex;
@@ -29,8 +29,11 @@ ul,li{
    background: lightblue;
    border-radius: 5px;
    color: #fff;
-   padding: 2px;
+   padding: 2px 5px;
    margin: 2px;
+}
+.select-active>ul>li:hover{
+    cursor: pointer;
 }
 .select-show{
    box-sizing: border-box;
@@ -52,7 +55,7 @@ ul,li{
 .select-list{
     box-sizing: border-box;
     position: absolute;
-    top:30px;
+    bottom:30px;
     left: 0;
     width: 100%;
     border-left: 1px #ccc solid;
@@ -65,9 +68,12 @@ ul,li{
     width: 100%;
     height: 30px;
     line-height: 30px;
-    border-bottom: 1px #ccc solid;
+    border-top: 1px #ccc solid;
 }
 .select-list-li:hover{
-    background: blueviolet;
+    background: #ccc;
     color: #fff;
+}
+.icon-close{
+    margin-left: 10px;
 }

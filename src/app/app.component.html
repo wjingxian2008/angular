@@ -1,7 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 <app-car-list></app-car-list>
-<div class="box">
-    <app-muti-select [values]="selectionArr" (childEvent)="showSelectArr($event)"></app-muti-select>
+<div class="item-box">
+    <div class="item-label">环境：</div>
+    <div class="box">
+        <app-muti-select [options]="selectionArr" (valueChange)="showSelectArr($event)"></app-muti-select>
+    </div>
 </div>
 

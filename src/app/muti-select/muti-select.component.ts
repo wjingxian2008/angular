@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { RebirthNGModule } from 'rebirth-ng';
 
 @Component({
   selector: 'app-muti-select',
@@ -7,12 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MutiSelectComponent implements OnInit {
 
-  @Input() values;
+  @Input() options;
   @Output() childEvent = new EventEmitter<any>();
-
-  showSelection = false;
-
+  @Input() valueParser: (item: any) => any;
+  @Output() valueChange = new EventEmitter<any>();
+  value: any[] = [];
+  showOptions = false;
   selectedArr: object[];
+  private onChange = (_: any) => null;
+  private onTouched = () => null;
+
 
   constructor() {}
 
@@ -20,13 +25,23 @@ export class MutiSelectComponent implements OnInit {
   }
 
   clickSelect() {
-    this.showSelection = !this.showSelection;
-    console.log(this.showSelection);
+    this.showOptions = !this.showOptions;
   }
 
-  isSelected(i: number) {
-    this.values[i].active = !this.values[i].active;
-    this.selectedArr = this.values.filter(it => it.active === true);
-    this.childEvent.emit(this.selectedArr);
+  onCheckBoxChange(item: any, checkbox) {
+    this.onTouched();
+    this.value = this.value || [];
+    const value = item.name;
+    if (checkbox.checked) {
+      this.value = [...this.value, value];
+    } else {
+      this.value = this.value.filter((valueItem) => valueItem !== value);
+    }
+    this.onChange(this.value);
+    this.valueChange.emit(this.value);
+  }
+
+  isChecked(item: any) {
+    return this.value.indexOf(item.name) !== -1;
   }
 }
