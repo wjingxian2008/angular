@@ -1,29 +1,21 @@
 <div class="select-wrapper" (mouseleave)="showOptions = false">
-  <div class="select-active" *ngIf="value.length>0">
-    <ul>
-      <li *ngFor="let item of value">
-        {{item}}
-        <span class="icon-close">x</span>
-      </li>
-    </ul>
+  <div class="select-list" *ngIf="showOptions">
+    <div class="select-list-li" *ngFor="let item of options">
+      <label>
+        <input #checkbox type="checkbox" [checked]="isChecked(item)" 
+          (change)="onCheckBoxChange(item, checkbox)">{{item.name}}
+      </label>
+    </div>
   </div>
   <div class="select-show" (click)="clickSelect()">
     <div class="select-show-txt">请选择</div>
-    <div class="arr">arr</div>
+    <i class="glyphicon glyphicon-menu-down"></i>
   </div>
-  <!-- *ngIf="showOptions" -->
-  <div class="select-list">
-    <div class="select-list-li" [ngClass]="{'checkbox-inline': inline, 'checkbox': !inline}" *ngFor="let item of options">
-      <label>
-        <input #checkbox type="checkbox" [checked]="isChecked(item)"
-        (change)="onCheckBoxChange(item, checkbox)">{{item.name}}
-      </label>
-    </div>
-    <!-- <ul class="select-list" >
-      <li class="select-list-li" *ngFor="let env of values, let i = index"  [ngClass]="{'active':env.active}"
-      (click)="isSelected(i)">
-        {{env.name}}
+  <div class="select-active" *ngIf="value.length>0">
+    <ul>
+      <li *ngFor="let item of value">
+        {{item}}<span class="icon-close" (click)="removeOption(item)">x</span>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </div>

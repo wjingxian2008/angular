@@ -9,12 +9,9 @@ import { RebirthNGModule } from 'rebirth-ng';
 export class MutiSelectComponent implements OnInit {
 
   @Input() options;
-  @Output() childEvent = new EventEmitter<any>();
-  @Input() valueParser: (item: any) => any;
   @Output() valueChange = new EventEmitter<any>();
   value: any[] = [];
   showOptions = false;
-  selectedArr: object[];
   private onChange = (_: any) => null;
   private onTouched = () => null;
 
@@ -43,5 +40,9 @@ export class MutiSelectComponent implements OnInit {
 
   isChecked(item: any) {
     return this.value.indexOf(item.name) !== -1;
+  }
+
+  removeOption(item: string) {
+    this.value = this.value.filter(it => it !== item);
   }
 }
