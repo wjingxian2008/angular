@@ -1,13 +1,15 @@
 <div class="select-wrapper" (mouseleave)="showOptions = false">
-  <div class="select-list" *ngIf="showOptions">
+    <!-- *ngIf="showOptions" -->
+  <!-- <div class="select-list" >
     <div class="select-list-li" *ngFor="let item of options">
-      <label>
+      <label for="{{item.name}}">
         <input #checkbox type="checkbox" [checked]="isChecked(item)" 
-          (change)="onCheckBoxChange(item, checkbox)">{{item.name}}
-      </label>
+          (change)="onCheckBoxChange(item, checkbox)" id="{{item.name}}">{{item.name}}
+        </label>
     </div>
   </div>
   <div class="select-show" (click)="clickSelect()">
+    <i class="fa fa-search"></i>
     <div class="select-show-txt">请选择</div>
     <i class="glyphicon glyphicon-menu-down"></i>
   </div>
@@ -17,5 +19,13 @@
         {{item}}<span class="icon-close" (click)="removeOption(item)">x</span>
       </li>
     </ul>
+  </div> -->
+
+
+  <div class="circle-out1 heart">
+    <div class="circle-in1"></div>
+  </div>
+  <div class="trangle">
+
   </div>
 </div>

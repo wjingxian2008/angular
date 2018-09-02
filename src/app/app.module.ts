@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CarService } from './shared/car/car.service';
 import { CarListComponent } from './car-list/car-list.component';
 import { MutiSelectComponent } from './muti-select/muti-select.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MutiSelectComponent } from './muti-select/muti-select.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [CarService],
   bootstrap: [AppComponent]
